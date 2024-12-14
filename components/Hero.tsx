@@ -7,10 +7,10 @@ const Hero = () => {
         <div className='w-full h-screen justify-center items-center flex bg-black'>
             <div className='w-full'>
                 <h1 className='text-center lg:text-5xl md:text-5xl text-2xl text-white font-contentFont '>Sean Lai Sheng Hong</h1>
-                <h2 className='items-center justify-center  text-white'><FlipWords  className="text-white font-contentFont w-full text-center lg:text-4xl md:text-3xl text-lg" words={words}/></h2>
-                <h3 className='w-full text-white text-center justify-center items-center'>
+                <h2 className='items-center justify-center py-10  text-white'><FlipWords  className="text-white font-contentFont w-full text-center lg:text-4xl md:text-3xl text-lg" words={words}/></h2>
+                <h3 className='w-full text-white text-center justify-center items-center font-contentFont text-xl'>
                     CS @ NYU `27 
-                <span className='invisible md:visible w-full md:inline '>
+                <span className='invisible md:visible w-full hidden md:inline '>
                 | Researcher @ NYU High Speed Research Network
                 </span>
                 </h3>
