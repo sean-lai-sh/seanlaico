@@ -6,7 +6,7 @@ const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
         <h1 className='w-full text-left px-10 md:px-20 py-5 text-3xl'>About Me:</h1>
         <div className='w-full flex flex-col md:flex-row sm:px-10 pt-5'>
             <div className='lg:max-h-[50vh] lg:max-w-[30vw] md:max-w-[60vw] md:max-h-[60vh] px-5 pb-5 md:pb-0'>
-                <img src="/images/sean_l.jpg" className='rounded-lg shadow-md shadow-blue-600 w-full h-full'>
+                <img src="/images/sean_l.jpg" className='rounded-lg shadow-md shadow-blue-600 w-full' width={800} height={800}>
                 
                 </img>
             </div>
@@ -18,7 +18,7 @@ const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
             
             </div>
         </div>
-        <div className='grid-rows-5 grid-cols-1 w-full min-h-[20vh] px-10'>
+        <div className='grid-rows-5 grid-cols-1 w-full min-h-[20vh] px-10 lg:py-20'>
           <RiNextjsFill className='row-span-1 h-[20vh] w-20'/>                  
            
         </div>
