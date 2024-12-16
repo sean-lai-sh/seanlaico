@@ -1,6 +1,5 @@
 import React , {RefObject}from 'react'
 import { FlipWords } from './ui/flip-words'
-import {motion} from 'framer-motion'
 import BounceArrow from './ui/BounceArrow'
 const Hero = ({nextSectionRef, jsDisabled} : {nextSectionRef : RefObject<HTMLDivElement>, jsDisabled? : boolean}) => {
     const words = ['Creator', 'Developer', 'Leader']

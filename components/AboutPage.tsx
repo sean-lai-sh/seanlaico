@@ -1,6 +1,4 @@
 import React , {forwardRef} from 'react'
-import { RiNextjsFill } from "react-icons/ri";
-import InfiniteCarousel from './ui/InfiniteCarousel';
 const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section className='w-full min-h-[100vh] flex-col flex bg-black text-white' ref={ref}>
