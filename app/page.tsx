@@ -5,11 +5,13 @@ import Loader  from "@/components/Loader";
 import { motion } from "framer-motion";
 import React, { useEffect, useState, useRef } from "react";
 
-export default function Home() {
+export default function Home({loaderScreen} : {loaderScreen : string}) {
+  const [isJavaScriptEnabled, setIsJavaScriptEnabled] = useState(false);
   /// Below is a code snippet that disables throughout all components the scroll, thereby forcing the user to wait for the loading animation to finish :)
   const [isLoading, setIsLoading] = useState(true);
   const aboutMeRef = useRef(null); // Ref for the about me section
   useEffect(() => {
+    setIsJavaScriptEnabled(true);
     if (typeof document !== "undefined") {
       // Disable scrolling while loading
       if (isLoading) {
@@ -36,6 +38,17 @@ export default function Home() {
     return () => clearTimeout(timer); // Clean up timer on unmount
   }, []);
 
+  const [isHydrated, setisHydrated] = useState(false);
+    useEffect(() => {
+        setisHydrated(true);
+        }
+    , []);
+    
+    if(!isHydrated) {
+        return (
+        <div dangerouslySetInnerHTML={{__html: loaderScreen}} />)
+    }
+
   const containerUp = {
           hidden: {
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
@@ -53,15 +66,27 @@ export default function Home() {
       }
   
   return (
-      <>
-        <Loader />
-        <motion.div className="bg-[#05051d] overflow-x-clip absolute inset-0 z-20 mix-blend-exclusion" variants={containerUp} initial="hidden" animate="show" />
+      <div className="w-screen bg-[#0c0c0c] h-auto">
+        {isJavaScriptEnabled ? 
+        <><Loader />
+  
         <div className="w-full overflow-x-clip">
           
-          <Hero nextSectionRef={aboutMeRef} />
+          <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
           <AboutPage ref={aboutMeRef} />
           {/* <GlobeDemo /> */}
         </div>
-      </>
+        </>
+        :
+        <noscript>
+        <div className="w-full overflow-x-clip">
+          
+        <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
+        <AboutPage ref={aboutMeRef} />
+        {/* <GlobeDemo /> */}
+      </div></noscript>}
+      
+        
+      </div>
   );
 }

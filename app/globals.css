@@ -43,3 +43,19 @@ semiCircleStyle {
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
 }
+
+
+#infiniteCarouselItem {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: center ;
+}
+
+#infiniteCarouselBody {
+  height: 100vh;
+  width: 100vw;
+  background-color: #1f1f1f;
+  margin: 0rem;
+  overflow: hidden;
+}

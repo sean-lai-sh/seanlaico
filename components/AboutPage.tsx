@@ -1,5 +1,6 @@
 import React , {forwardRef} from 'react'
 import { RiNextjsFill } from "react-icons/ri";
+import InfiniteCarousel from './ui/InfiniteCarousel';
 const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <section className='w-full min-h-[100vh] flex-col flex bg-black text-white' ref={ref}>
@@ -17,11 +18,12 @@ const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
                 
             
             </div>
+            {/* <InfiniteCarousel items={[<p>test</p>, ]}/> */}
         </div>
-        <div className='grid-rows-5 grid-cols-1 w-full min-h-[20vh] px-10 lg:py-20'>
+        {/* <div className='grid-rows-5 grid-cols-1 w-full min-h-[20vh] px-10 lg:py-20'>
           <RiNextjsFill className='row-span-1 h-[20vh] w-20'/>                  
            
-        </div>
+        </div> */}
     </section>
   )
 });
