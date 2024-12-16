@@ -5,7 +5,7 @@ const Hero = ({nextSectionRef, jsDisabled} : {nextSectionRef : RefObject<HTMLDiv
     const words = ['Creator', 'Developer', 'Leader']
     return (
         
-        <div className='w-full h-screen justify-center items-center flex bg-[#0c0c0c]'>
+        <div className='w-screen h-screen justify-center items-center flex bg-[#0c0c0c] overflow-hidden'>
             <div className='w-full' > {/* This will run "after" a loading animation to kick start my portfolio */}
                 <h1 className='text-center lg:text-5xl md:text-5xl sm:text-4xl text-4xl xl:text-6xl text-white font-tomorrow'>Sean Lai</h1>
                 <div className='items-center justify-center py-10  text-white'>

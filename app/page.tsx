@@ -17,9 +17,9 @@ export default function Home() {
         document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflowY = ""; // Reset to default
+        document.body.style.overflowX = "hidden"; // Reset to default
       }
     }
-
     // Clean up on component unmount
     return () => {
       if (typeof document !== "undefined") {
@@ -65,7 +65,7 @@ export default function Home() {
       }
   
   return (
-      <div className="w-screen bg-[#0c0c0c] h-auto">
+      <div className=" bg-[#0c0c0c] overflow-x-hidden">
         {isJavaScriptEnabled ? 
         <><Loader />
           <motion.div className="bg-[#031a37] w-screen h-screen" variants={containerUp}
@@ -80,12 +80,13 @@ export default function Home() {
         </>
         :
         <noscript>
-        <div className="w-full overflow-x-clip">
-          
-        <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
-        <AboutPage ref={aboutMeRef} />
-        {/* <GlobeDemo /> */}
-      </div></noscript>}
+          <div className="w-full overflow-x-clip">
+            
+          <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
+          <AboutPage ref={aboutMeRef} />
+          {/* <GlobeDemo /> */}
+          </div>
+        </noscript>}
       
         
       </div>
