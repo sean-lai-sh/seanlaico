@@ -1,7 +1,4 @@
 import { AppProps } from 'next/app';
-import {useState, useEffect} from 'react';
-import Loader from '@/components/Loader';
-import {motion} from 'framer-motion';
 export default function MyApp({ Component, pageProps }: AppProps) {
     
 

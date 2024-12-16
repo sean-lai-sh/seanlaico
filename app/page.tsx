@@ -2,10 +2,9 @@
 import AboutPage from "@/components/AboutPage";
 import Hero from "@/components/Hero";
 import Loader  from "@/components/Loader";
-import { motion } from "framer-motion";
 import React, { useEffect, useState, useRef } from "react";
 
-export default function Home({loaderScreen} : {loaderScreen : string}) {
+export default function Home() {
   const [isJavaScriptEnabled, setIsJavaScriptEnabled] = useState(false);
   /// Below is a code snippet that disables throughout all components the scroll, thereby forcing the user to wait for the loading animation to finish :)
   const [isLoading, setIsLoading] = useState(true);
@@ -38,16 +37,16 @@ export default function Home({loaderScreen} : {loaderScreen : string}) {
     return () => clearTimeout(timer); // Clean up timer on unmount
   }, []);
 
-  const [isHydrated, setisHydrated] = useState(false);
-    useEffect(() => {
-        setisHydrated(true);
-        }
-    , []);
+  // const [isHydrated, setisHydrated] = useState(false);
+  //   useEffect(() => {
+  //       setisHydrated(true);
+  //       }
+  //   , []);
     
-    if(!isHydrated) {
-        return (
-        <div dangerouslySetInnerHTML={{__html: loaderScreen}} />)
-    }
+  //   if(!isHydrated) {
+  //       return (
+  //       <div dangerouslySetInnerHTML={{__html: loaderScreen}} />)
+  //   }
 
   const containerUp = {
           hidden: {
