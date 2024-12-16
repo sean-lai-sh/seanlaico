@@ -1,11 +1,11 @@
 import React from 'react'
-import {motion} from 'framer-motion'
 
-const InfiniteCarousel = ({items} : { items: HTMLDivElement[]}) => {
+
+const InfiniteCarousel = () => {
   return (
     <div className='infiniteCarouselBody'>
       <div className='infiniteCarouselItem'>
-         
+        
       </div>
     </div>
   )

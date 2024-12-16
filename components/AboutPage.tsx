@@ -1,5 +1,5 @@
 import React , {forwardRef} from 'react'
-const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
+const AboutPage = forwardRef<HTMLDivElement>((_tag, ref) => {
   return (
     <section className='w-full min-h-[100vh] flex-col flex bg-black text-white' ref={ref}>
         <h1 className='w-full text-left px-10 md:px-20 py-5 text-3xl'>About Me:</h1>
@@ -25,5 +25,5 @@ const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
     </section>
   )
 });
-
+AboutPage.displayName = 'AboutPage';
 export default AboutPage

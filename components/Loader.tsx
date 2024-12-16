@@ -30,7 +30,7 @@ const Loader = () => {
             initial="hidden"
             animate="show"
         >
-            <h1 className='text-center lg:text-5xl md:text-5xl sm:text-4xl text-4xl xl:text-6xl text-white font-tomorrow top-40 absolute'>Sean Lai's Portfolio</h1>
+            <h1 className='text-center lg:text-5xl md:text-5xl sm:text-4xl text-4xl xl:text-6xl text-white font-tomorrow top-40 absolute'>Sean Lai`&apos`s Portfolio</h1>
             <LoaderCircle />
         </motion.div>
     )

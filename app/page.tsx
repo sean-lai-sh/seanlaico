@@ -3,7 +3,7 @@ import AboutPage from "@/components/AboutPage";
 import Hero from "@/components/Hero";
 import Loader  from "@/components/Loader";
 import React, { useEffect, useState, useRef } from "react";
-
+import { motion } from "framer-motion";
 export default function Home() {
   const [isJavaScriptEnabled, setIsJavaScriptEnabled] = useState(false);
   /// Below is a code snippet that disables throughout all components the scroll, thereby forcing the user to wait for the loading animation to finish :)
@@ -68,8 +68,10 @@ export default function Home() {
       <div className="w-screen bg-[#0c0c0c] h-auto">
         {isJavaScriptEnabled ? 
         <><Loader />
-  
-        <div className="w-full overflow-x-clip">
+          <motion.div className="bg-[#031a37] w-screen h-screen" variants={containerUp}
+            initial="hidden"
+            animate="show"/>
+        <div className="w-full overflow-x-clip" >
           
           <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
           <AboutPage ref={aboutMeRef} />
