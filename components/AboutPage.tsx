@@ -2,10 +2,10 @@ import React , {forwardRef} from 'react'
 import { RiNextjsFill } from "react-icons/ri";
 const AboutPage = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <section className='w-full h-100vh flex-col flex bg-black text-white' ref={ref}>
-        <h1 className='w-full text-center px-10'>About Me:</h1>
-        <div className='w-full flex flex-col sm:flex-row md:px-20 sm:px-10 pt-10 min-h-[50vh]'>
-            <div className='lg:max-h-[50vh] lg:max-w-[50vh] px-5'>
+    <section className='w-full min-h-[100vh] flex-col flex bg-black text-white' ref={ref}>
+        <h1 className='w-full text-left px-10 md:px-20 py-5 text-3xl'>About Me:</h1>
+        <div className='w-full flex flex-col md:flex-row sm:px-10 pt-5'>
+            <div className='lg:max-h-[50vh] lg:max-w-[30vw] md:max-w-[60vw] md:max-h-[60vh] px-5 pb-5 md:pb-0'>
                 <img src="/images/sean_l.jpg" className='rounded-lg shadow-md shadow-blue-600 w-full h-full'>
                 
                 </img>

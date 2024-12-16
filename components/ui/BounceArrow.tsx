@@ -11,7 +11,7 @@ const BounceArrow = ({targetRef}: {targetRef: RefObject<HTMLDivElement>}) => {
     const bounceAnimation = {
         y: {
             yoyo: Infinity,
-            duration: 1.5,
+            duration: 5,
             ease: "easeInOut",
             repeat: Infinity
         }
@@ -20,7 +20,7 @@ const BounceArrow = ({targetRef}: {targetRef: RefObject<HTMLDivElement>}) => {
     return (
         <motion.div className="w-full h-20 flex justify-center items-center mt-1 md:top-[80%]"
             transition={bounceAnimation}
-            animate={{ y: [0, 15,0 ] }}>
+            animate={{ y: [0, 15, 0 ] }}>
             <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}

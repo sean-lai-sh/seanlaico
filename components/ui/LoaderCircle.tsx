@@ -4,6 +4,7 @@ const LoaderCircle = () => {
     const control_lower_line = useAnimation();
     const control_upper_line = useAnimation();
     useEffect(() => {
+        // Set of commands telling the "order" of the animations since this is a multi stage animation
         async function animateLower() {
             await control_lower_line.start("spinCircle");
             await control_lower_line.start("transformToLineBottom");
@@ -46,7 +47,7 @@ const LoaderCircle = () => {
         // We are to now move this all the way to the left of the screen, from original position to left most position having said line
         moveToEndBottom: {
             x: "-50vw", // Moves the element to the left
-            width: "60vw", // Expands width to 50% of the viewport width
+            width: "60vw", // Expands width to proportional to vw
             background: "white", // Correct lowercase `background`
             border: "0px solid white", // Correct border property
             borderRadius: "0px", // Remove border radius
@@ -65,10 +66,10 @@ const LoaderCircle = () => {
                 ease: "linear",
             }
         },
-        // We are to now move this all the way to the left of the screen, from original position to left most position having said line
+        // We are to now move this all the way to the right of the screen, from original position to left most position having said line
         moveToEndUpper: {
-            x: "50vw", // Moves the element to the left
-            width: "60vw", // Expands width to 50% of the viewport width
+            x: "50vw", // Moves the element to the right
+            width: "60vw", // Expands width to proportional to vw
             background: "white", // Correct lowercase `background`
             border: "0px solid white", // Correct border property
             borderRadius: "0px", // Remove border radius
