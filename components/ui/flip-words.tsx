@@ -65,19 +65,19 @@ export const FlipWords = ({
       >
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
-            key={word + wordIndex}
+            key={word + wordIndex * 18}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
               delay: wordIndex * 0.3,
               duration: 0.5,
             }}
-            className="inline-block whitespace-nowrap"
+            className="inline-block whitespace-nowrap animation-redBlueWhite"
           >
             {word.split("").map((letter, letterIndex) => (
               <>
               <motion.span
-                key={word + letterIndex}
+                key={word + letterIndex * 45+ letter}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{

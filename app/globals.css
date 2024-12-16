@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@font-face {
+  font-family: "Tomorrow";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Tomorrow-Medium.ttf") format("truetype");
 }
+
+@font-face{
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/DM_Sans/DMSans-VFont.ttf") format("ttf");
+}
+
 
 @font-face {
   font-family: "DM Serif", serif;
@@ -23,21 +34,12 @@
   
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+semiCircleStyle {
+  width: 100px; 
+  height: 200px; 
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
