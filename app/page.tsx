@@ -1,16 +1,14 @@
 'use client';
 import AboutPage from "@/components/AboutPage";
 import Hero from "@/components/Hero";
-import { GlobeDemo } from "@/components/Interact";
-import { Globe } from "@/components/ui/Globe";
 import Loader  from "@/components/Loader";
-import { motion, useAnimate } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   /// Below is a code snippet that disables throughout all components the scroll, thereby forcing the user to wait for the loading animation to finish :)
   const [isLoading, setIsLoading] = useState(true);
-
+  const aboutMeRef = useRef(null); // Ref for the about me section
   useEffect(() => {
     if (typeof document !== "undefined") {
       // Disable scrolling while loading
@@ -47,7 +45,7 @@ export default function Home() {
               clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
               display: "none",
               transition: {
-                  delay:4.4,
+                  delay:4.2,
                   duration: 0.6,
                   ease: "easeInOut",
               }
@@ -57,11 +55,11 @@ export default function Home() {
   return (
       <>
         <Loader />
-        <motion.div className="bg-[#070727] overflow-x-clip absolute inset-0 z-20 mix-blend-exclusion" variants={containerUp} initial="hidden" animate="show" />
+        <motion.div className="bg-[#05051d] overflow-x-clip absolute inset-0 z-20 mix-blend-exclusion" variants={containerUp} initial="hidden" animate="show" />
         <div className="w-full overflow-x-clip">
           
-          <Hero />
-          <AboutPage />
+          <Hero nextSectionRef={aboutMeRef} />
+          <AboutPage ref={aboutMeRef} />
           {/* <GlobeDemo /> */}
         </div>
       </>

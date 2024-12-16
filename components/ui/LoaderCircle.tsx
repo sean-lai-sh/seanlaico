@@ -46,12 +46,12 @@ const LoaderCircle = () => {
         // We are to now move this all the way to the left of the screen, from original position to left most position having said line
         moveToEndBottom: {
             x: "-50vw", // Moves the element to the left
-            width: "50vw", // Expands width to 50% of the viewport width
+            width: "60vw", // Expands width to 50% of the viewport width
             background: "white", // Correct lowercase `background`
             border: "0px solid white", // Correct border property
             borderRadius: "0px", // Remove border radius
             transition: {
-                duration: 1,
+                duration: 1.25,
                 ease: "easeInOut",
             },
         },
@@ -68,12 +68,12 @@ const LoaderCircle = () => {
         // We are to now move this all the way to the left of the screen, from original position to left most position having said line
         moveToEndUpper: {
             x: "50vw", // Moves the element to the left
-            width: "50vw", // Expands width to 50% of the viewport width
+            width: "60vw", // Expands width to 50% of the viewport width
             background: "white", // Correct lowercase `background`
             border: "0px solid white", // Correct border property
             borderRadius: "0px", // Remove border radius
             transition: {
-                duration: 1,
+                duration: 1.25,
                 ease: "easeInOut",
             },
         },
@@ -84,7 +84,7 @@ const LoaderCircle = () => {
             width: "0px",
             display: "none",
             transition: {
-                duration: 0.75,
+                duration: 0.5,
                 ease: "linear",
             }
             

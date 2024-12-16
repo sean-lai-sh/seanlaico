@@ -1,8 +1,9 @@
-import React from 'react'
+import React , {RefObject}from 'react'
 import { FlipWords } from './ui/flip-words'
 import {motion} from 'framer-motion'
-const Hero = () => {
-    const words = ['Creator', 'Developer', 'Entrepreneur']
+import BounceArrow from './ui/BounceArrow'
+const Hero = ({nextSectionRef} : {nextSectionRef : RefObject<HTMLDivElement>}) => {
+    const words = ['Creator', 'Developer', 'Leader']
     return (
         
         <div className='w-full h-screen justify-center items-center flex bg-black'>
@@ -17,7 +18,7 @@ const Hero = () => {
                 | Researcher @ NYU High Speed Research Network
                 </span>
                 </h3>
-                
+                <BounceArrow targetRef={nextSectionRef}/>
             </div>
         </div>
     )

@@ -3,53 +3,16 @@ import React, {  } from 'react'
 import {motion} from 'framer-motion'
 import LoaderCircle from './ui/LoaderCircle';
 const Loader = () => {
-    
-    // async function myAnimation(){ // An animation that will animate a imagine container and set it to black
-    //     await animate("#ImageCon", {clipPath:"", display:"none"}) // Empty clipPath to reveal the image
-    // }
-
-    // // useEffect( () => {
-    // //     myAnimation()
-    // // }, [])
-
-    // const move = { 
-    // // This will become the defacto animation for the loader, chanigng whether we want an "up" or "down" animation or "left" or "right"
-    //     hidden : (i:number[]) => ({
-    //         y:"100%",
-    //         x: i[0],
-    //     }),
-    //     moveUp : {
-    //         y: 0,
-    //         transition: (i: number[])=> ({
-    //             delay: i[1],
-    //             duration: 0.4,
-    //             ease: "easeInOut",
-    //         })
-    //     },
-    //     moveLeft : {
-    //         x: "-10px",
-    //         transition: ()=> ({
-    //             delay: 0.8,
-    //             duration: 0.4,
-    //             ease: "easeInOut",
-    //         })
-    //     },
-    //     moveRight : {
-    //         x: "10px",
-    //         transition: ()=> ({
-    //             delay: 0.8,
-    //             duration: 0.4,
-    //             ease: "easeInOut",
-    //         })
-    //     },
-    // }
-
     const containerUp = {
         hidden: {
+            // This telling the loader to show up and hide the content
+            // I.e my landing page. Please do not confuse it future me :)
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         
         },
         show: {
+            // Technically misleading, this is the "show content" animation
+            // This is for telling the loader please showcase the content hidden
             clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
             display: "none",
             transition: {
@@ -62,7 +25,7 @@ const Loader = () => {
 
     return (
         <motion.div 
-            className='w-screen h-screen inset-0 overflow-hidden bg-[#0c0c0c] flex absolute z-50 justify-center items-center flex'
+            className='w-screen h-screen inset-0 overflow-hidden bg-[#0c0c0c] flex fixed z-50 justify-center items-center top-0'
             variants={containerUp}
             initial="hidden"
             animate="show"

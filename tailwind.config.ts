@@ -14,7 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         contentFont: ["DM Serif", "serif"],
-        titleFont: ["DM Sans", "sans-serif"],
+        titleFont: ["DM Sans"],
         tomorrow: ["Tomorrow"],
       },
       keyframes: {
