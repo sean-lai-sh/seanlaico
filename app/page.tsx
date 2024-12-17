@@ -10,6 +10,13 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const aboutMeRef = useRef(null); // Ref for the about me section
   useEffect(() => {
+    // Simulate loading for 4 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading
+    }, 4000);
+    return () => clearTimeout(timer); // Clean up timer on unmount
+  }, []);
+  useEffect(() => {
     setIsJavaScriptEnabled(true);
     if (typeof document !== "undefined") {
       // Disable scrolling while loading
@@ -23,72 +30,38 @@ export default function Home() {
     // Clean up on component unmount
     return () => {
       if (typeof document !== "undefined") {
-        document.body.style.overflow = "";
+        document.body.style.overflowY = "";
       }
     };
-  }, [isLoading]);
-
-  useEffect(() => {
-    // Simulate loading for 4 seconds
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Stop loading
-    }, 4000);
-
-    return () => clearTimeout(timer); // Clean up timer on unmount
-  }, []);
-
-  // const [isHydrated, setisHydrated] = useState(false);
-  //   useEffect(() => {
-  //       setisHydrated(true);
-  //       }
-  //   , []);
-    
-  //   if(!isHydrated) {
-  //       return (
-  //       <div dangerouslySetInnerHTML={{__html: loaderScreen}} />)
-  //   }
+  }, [isLoading]);  
 
   const containerUp = {
-          hidden: {
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-          
-          },
-          show: {
-              clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
-              display: "none",
-              transition: {
-                  delay:4.2,
-                  duration: 0.6,
-                  ease: "easeInOut",
-              }
+      hidden: {
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      },
+      show: {
+          clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
+          display: "none",
+          transition: {
+              delay: 3.3,
+              duration: 0.6,
+              ease: "easeInOut",
           }
       }
-  
+  }
+  /// Explaination : the loading tag that disables scroll serves perfectly as a boolean gate to prevent loader from showing up during no JS mode
   return (
-      <div className=" bg-[#0c0c0c] overflow-x-hidden">
-        {isJavaScriptEnabled ? 
-        <><Loader />
-          <motion.div className="bg-[#031a37] w-screen h-screen" variants={containerUp}
+      <main className="bg-[#0c0c0c] overflow-x-hidden">
+          {isLoading && <><Loader />
+          <motion.div className="bg-[#031a37] w-screen h-screen" 
+            variants={containerUp}
             initial="hidden"
-            animate="show"/>
-        <div className="w-full overflow-x-clip" >
-          
-          <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
-          <AboutPage ref={aboutMeRef} />
-          {/* <GlobeDemo /> */}
-        </div>
-        </>
-        :
-        <noscript>
+            animate="show"/></>}
           <div className="w-full overflow-x-clip">
-            
-          <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
-          <AboutPage ref={aboutMeRef} />
+            <Hero nextSectionRef={aboutMeRef} jsDisabled={isJavaScriptEnabled} />
+            <AboutPage ref={aboutMeRef} />
           {/* <GlobeDemo /> */}
           </div>
-        </noscript>}
-      
-        
-      </div>
+      </main>
   );
 }

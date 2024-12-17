@@ -16,7 +16,7 @@ const LoaderCircle = () => {
             await control_upper_line.start("spinCircle");
             await control_upper_line.start("transformToLineUpper");
             await control_upper_line.start("moveToEndUpper");
-            await control_upper_line.start("endAnimation");
+            await control_upper_line.start("endAnimationUpper");
         }
         animateUpper()
 
@@ -24,9 +24,11 @@ const LoaderCircle = () => {
     const loaderAnimation = {
         // Do a 360 degree rotation
         spinCircle: {
+            y: 0,
+            x: 0,
             rotate: 2520,
             transition: {
-                duration: 1.5,
+                duration: 1,
                 ease: "linear",
 
             }
@@ -46,7 +48,7 @@ const LoaderCircle = () => {
         },
         // We are to now move this all the way to the left of the screen, from original position to left most position having said line
         moveToEndBottom: {
-            x: "-50vw", // Moves the element to the left
+            x: "-75vw", // Moves the element to the left
             width: "60vw", // Expands width to proportional to vw
             background: "white", // Correct lowercase `background`
             border: "0px solid white", // Correct border property
@@ -89,6 +91,18 @@ const LoaderCircle = () => {
                 ease: "linear",
             }
             
+        },
+        // Retract the line from the original to the left most position
+        endAnimationUpper: {
+            scaleX: 1,
+            width: "0px",
+            x: "75vw",
+            display: "none",
+            transition: {
+                duration: 0.5,
+                ease: "linear",
+            }
+            
         }
     }
     // className={`justify-center items-center flex bg-black w-[100px] h-[50px] rounded-bl-[100px] rounded-br-[100px]`}
@@ -102,7 +116,7 @@ const LoaderCircle = () => {
                 animate={control_lower_line}
             />
             <motion.div 
-                className='block w-[150px] h-[150px] border-t-8  border-t-[#e4e4e4] rounded-full box-border absolute'
+                className='block w-[150px] h-[150px] border-t-8 border-t-[#e4e4e4] rounded-full box-border absolute'
                 variants={loaderAnimation}
                 animate={control_upper_line}
             />

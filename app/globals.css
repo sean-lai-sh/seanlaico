@@ -34,17 +34,6 @@
   
 }
 
-
-semiCircleStyle {
-  width: 100px; 
-  height: 200px; 
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-}
-
-
 #infiniteCarouselItem {
   width: 40vmin;
   height: 56vmin;

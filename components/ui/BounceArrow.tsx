@@ -5,7 +5,14 @@ import { IoIosArrowDown } from "react-icons/io";
 //Upon "click" will scroll down to the next section go down to next section
 const BounceArrow = ({targetRef}: {targetRef: RefObject<HTMLDivElement>}) => {
     const scrollToTarget = () => {
-        targetRef.current?.scrollIntoView({ behavior: "smooth" });
+        if(targetRef.current === null) return;
+        if (typeof targetRef.current.scrollIntoView === "function") {
+            targetRef.current.scrollIntoView({ behavior: "smooth" });
+        } else {
+            // Fallback: manually scroll using `window.scrollTo`
+            const targetPosition = targetRef.current.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        }
     };
 
     const bounceAnimation = {

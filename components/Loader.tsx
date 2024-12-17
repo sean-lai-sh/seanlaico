@@ -16,22 +16,34 @@ const Loader = () => {
             clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
             display: "none",
             transition: {
-                delay:4,
+                delay:3,
                 duration: 0.6,
                 ease: "easeInOut",
             }
         }
     }
-
+    console.log('Loader rendered')
     return (
         <motion.div 
-            className='w-screen h-screen inset-0 overflow-hidden bg-[#0c0c0c] flex fixed z-50 justify-center items-center top-0'
+            className='w-screen h-screen inset-0 overflow-hidden bg-[#130303] flex fixed z-50 justify-center items-center top-0'
             variants={containerUp}
             initial="hidden"
             animate="show"
         >
-            <h1 className='text-center lg:text-5xl md:text-5xl sm:text-4xl text-4xl xl:text-6xl text-white font-tomorrow top-40 absolute'>Sean Lai`&apos`s Portfolio</h1>
-            <LoaderCircle />
+            
+                <motion.div className='overflow-y-clip'>
+                    <h1 className='lg:text-5xl md:text-5xl sm:text-4xl text-4xl xl:text-6xl text-white font-tomorrow'>
+                        Sean
+                    </h1>
+                </motion.div>
+                <div className='w-[200px] relative justify-center items-center flex'>
+                    <LoaderCircle />
+                </div>
+                <motion.div className='overflow-y-clip'>
+                    <h1 className='lg:text-5xl md:text-5xl sm:text-4xl text-4xl xl:text-6xl text-white font-tomorrow'>
+                        Lai 
+                    </h1>
+                </motion.div>
         </motion.div>
     )
 }
